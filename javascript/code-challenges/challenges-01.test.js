@@ -57,13 +57,25 @@ Then, write a function named `speaker` that takes in an array of strings and a c
 Use `forEach` to build a new array of strings, each string modified by the callback. Return the new array.
 ------------------------------------------------------------------------------------------------ */
 
-const greeting = (word) => {
-  // Solution code here...
+// Function to transform a string to all uppercase and append "!"
+const greeting = (str) => {
+  return `${str.toUpperCase()}!`;
 };
 
-const speaker = (words, callback) => {
-  // Solution code here...
+// Function to apply a callback function to each string in an array
+const speaker = (arr, callback) => {
+  const modifiedArray = [];
+  arr.forEach((str) => {
+    modifiedArray.push(callback(str));
+  });
+  return modifiedArray;
 };
+
+// Example usage:
+const inputArray = ['hello', 'world', 'javascript'];
+const modifiedArray = speaker(inputArray, greeting);
+console.log(modifiedArray); // Output: ['HELLO!', 'WORLD!', 'JAVASCRIPT!']
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -82,12 +94,16 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr, value) => {
-  // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
+  for (let i = 0; i < times; i++) {
+    callback(arr, num);
+  }
+  return arr;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 
@@ -158,13 +174,13 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should provide an array of strings, that get uppercased, and a "!" at the end', () => {
     expect(speaker(['hello', '301', 'students'], greeting)).toStrictEqual(['HELLO!', '301!', 'STUDENTS!']);
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should add the number 8 to the array five times', () => {
     expect(addNumbers(8, [], 5, addValues)).toStrictEqual([8, 8, 8, 8, 8]);
     expect(addNumbers(8, [], 5, addValues).length).toStrictEqual(5);
