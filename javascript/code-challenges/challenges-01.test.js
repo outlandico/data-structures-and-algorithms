@@ -29,7 +29,7 @@ const addExclamation = (arr) => {
   let newArray = [];
   arr.forEach((value) => {
     newArray.push( value + "!" );
-  })
+  });
 return newArray;
   // Solution code here...
 };
@@ -43,6 +43,7 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 ------------------------------------------------------------------------------------------------ */
 
 const allUpperCase = (arr) => {
+  return arr.map(str => str.toUpperCase());
   // Solution code here...
 };
 
@@ -151,7 +152,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return an array of uppercase strings', () => {
     expect(allUpperCase(['hi', 'how', 'are', 'you'])).toStrictEqual(['HI', 'HOW', 'ARE', 'YOU']);
   });
