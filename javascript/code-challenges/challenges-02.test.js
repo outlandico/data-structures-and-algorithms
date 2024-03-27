@@ -13,6 +13,7 @@ const raisedToTheThird = (arr) => {
   arr.forEach((value) => {
     result.push(Math.pow(value, 3));
   });
+  console.log(result)
   return result;
 };
 
