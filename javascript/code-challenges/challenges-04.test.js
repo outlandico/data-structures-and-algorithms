@@ -89,7 +89,21 @@ Ensure that the original people array and stuff objects are unchanged
 ------------------------------------------------------------------------------------------------ */
 
 const newState = (arr, obj) => {
-  // Solution code here...
+  // Create copies of the provided array and object using spread operator
+  const newPeople = [...arr];
+  const newStuff = { ...obj };
+
+  // Add a new car ("Ford") to the list of cars
+  newStuff.cars = [...newStuff.cars, "Ford"];
+
+  // Change the toothbrush from "frayed" to "brand new"
+  newStuff.toothbrush = "brand new";
+
+  // Add 1 to the number of toys
+  newStuff.toys += 1;
+
+  // Return a new state object containing the copies of people array and stuff object with modifications
+  return { people: newPeople, stuff: newStuff };
 };
 
 
@@ -132,7 +146,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return a state object with 2 keys and new values', () => {
     const originalPeople = ['Kookla', 'Fran', 'Ollie'];
     const originalStuff = {
