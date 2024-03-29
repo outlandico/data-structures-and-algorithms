@@ -37,14 +37,19 @@ Write a function named getCourseKeys that takes in the courseInfo object and ret
 
 For example: (['name', 'duration', 'topics', 'finalExam']).
 ------------------------------------------------------------------------------------------------ */
-
 const getCourseKeys = (courseInfo) => {
   return Object.keys(courseInfo);
 };
 
 // Test the function
-console.log(getCourseKeys(courseInfo)); // Output: ['name', 'duration', 'topics', 'finalExam']
+const courseInfo = {
+  name: 'Code 301',
+  duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks'},
+  topics: ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming'],
+  finalExam: true
+};
 
+console.log(getCourseKeys(courseInfo)); // Output: ['name', 'duration', 'topics', 'finalExam']
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -56,7 +61,13 @@ Write a function named checkValues that takes in an object and a value and retur
 ------------------------------------------------------------------------------------------------ */
 
 const checkValues = (obj, value) => {
-  // Solution code here...
+  // Iterate through the values of the object
+  for (const key in obj) {
+    if (obj[key] === value) {
+      return true; // Return true if the value is found
+    }
+  }
+  return false; // Return false if the value is not found in the object
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -244,7 +255,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return true if the value is in the object', () => {
     expect(checkValues({ class: '301' }, '301')).toBe(true);
   });
