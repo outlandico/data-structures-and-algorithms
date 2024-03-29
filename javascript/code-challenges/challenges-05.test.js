@@ -151,9 +151,14 @@ const characters = [
 
 const getHouses = (arr) => {
   let houses = [];
-  // Solution code here...
+  for (const character of arr) {
+    if (character.house) {
+      houses.push(character.house);
+    }
+  }
   return houses;
 };
+
 
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -282,7 +287,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return an array of the names of the houses', () => {
     expect(getHouses(characters)[0]).toStrictEqual('Stark');
     expect(getHouses(characters).length).toStrictEqual(7);
