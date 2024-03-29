@@ -90,8 +90,13 @@ HR has asked you to change the data to make it easier to print so that it looks 
 ------------------------------------------------------------------------------------------------ */
 
 const updateNumbers = (obj) => {
-  // Solution code here...
+  const result = [];
+  for (const [name, phoneNumber] of Object.entries(obj)) {
+    result.push(`${name}: ${phoneNumber}`);
+  }
+  return result;
 };
+
 
 
 
@@ -265,7 +270,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return an an array of names and numbers', () => {
     const startingObj = {
       'Grace Hopper': '222-303-5938',
