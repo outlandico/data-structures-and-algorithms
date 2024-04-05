@@ -26,9 +26,18 @@ For example:
 
 return: 23
 ------------------------------------------------------------------------------------------------ */
-const findMax = (matrix) => {
-  // Solution code here...
-};
+function findMax(matrix) {
+  let maxNumber = Number.MIN_VALUE; // Initialize maxNumber to the smallest possible number
+  for (let row of matrix) {
+    for (let num of row) {
+      if (num > maxNumber) {
+        maxNumber = num;
+      }
+    }
+  }
+  return maxNumber;
+}
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -224,7 +233,7 @@ describe('Testing challenge 1', () => {
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should return the max value', () => {
     expect(findMax([[13,24,24,2], [2,5,6], [2,3]])).toStrictEqual(24);
   });
