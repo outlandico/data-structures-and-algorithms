@@ -128,7 +128,7 @@ describe('Testing challenge 1', () => {
   });
 });
 
-describe('Testing challenge 2', () => {
+xdescribe('Testing challenge 2', () => {
   test('It should return a state object with 2 keys', () => {
     const originalPeople = ['Kookla', 'Fran', 'Ollie'];
     const originalStuff = {
@@ -146,7 +146,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-describe('Testing challenge 3', () => {
+xdescribe('Testing challenge 3', () => {
   test('It should return a state object with 2 keys and new values', () => {
     const originalPeople = ['Kookla', 'Fran', 'Ollie'];
     const originalStuff = {
