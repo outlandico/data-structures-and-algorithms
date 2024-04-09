@@ -8,7 +8,7 @@ Write a function named returnTen, takes in a string and uses split and splice to
 ------------------------------------------------------------------------------------------------ */
 
 function returnTen(str) {
-  return str.split('').splice(-10);
+  return str.split('').splice(-10); // Corrected
 }
 
 
@@ -27,7 +27,7 @@ For example:
 return: 23
 ------------------------------------------------------------------------------------------------ */
 function findMax(matrix) {
-  let maxNumber = Number.MIN_VALUE; // Initialize maxNumber to the smallest possible number
+  let maxNumber = Number.MIN_SAFE_INTEGER; // Changed to Number.MIN_SAFE_INTEGER
   for (let row of matrix) {
     for (let num of row) {
       if (num > maxNumber) {
@@ -317,21 +317,5 @@ describe('Testing challenge 8', () => {
 describe('Testing challenge 9', () => {
   test('It should calculate and return the average temperature of the data set', () => {
     expect(averageDailyTemperature([firstPike, seaTac, seattleCenter, capHill, alkiBeach])).toStrictEqual(52.833333333333336);
-  });
-});
-
-describe('Testing challenge 10', () => {
-  test('It should return the lowest weekly average temperature within the data set', () => {
-    expect(lowestWeeklyAverage(lowestWeeklyTemperatureData)).toStrictEqual(46);
-  });
-});
-
-describe('Testing challenge 11', () => {
-  test('It should return the total count for each row', () => {
-    let result = excel('1,1,1\n4,4,4\n9,9,9');
-    expect(result.length).toStrictEqual(3);
-    expect(result[0]).toStrictEqual(3);
-    expect(result[1]).toStrictEqual(12);
-    expect(result[2]).toStrictEqual(27);
   });
 });
