@@ -79,8 +79,17 @@ Write a function named containsW that takes in a string. This function should us
 ------------------------------------------------------------------------------------------------ */
 
 const containsW = (str) => {
-  // Solution code here...
+  // Regular expression pattern to match the letter 'w' in lowercase
+  const pattern = /w/;
+
+  // Test if the pattern matches the string
+  return pattern.test(str);
 };
+
+// Example usage:
+console.log(containsW("Hello world")); // Output: true
+console.log(containsW("OpenAI")); // Output: false
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -211,7 +220,7 @@ describe('Testing challenge 1', () => {
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should return true if the input contains a lower case w', () => {
     expect(containsW('hello world')).toBe(true);
   });
