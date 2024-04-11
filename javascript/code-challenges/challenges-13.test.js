@@ -161,8 +161,23 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  // Solution code here...
+  const pattern = /^[A-J]/i; // Case-insensitive pattern matching A to J
+  return arr.filter(city => pattern.test(city));
 };
+
+// Test cases
+console.log(citiesAtoJ(["Atlanta", "Boston", "Chicago", "Denver", "Jacksonville", "Los Angeles", "Miami"]));
+// Expected output: ["Atlanta", "Boston", "Chicago", "Denver", "Jacksonville"]
+
+console.log(citiesAtoJ(["New York", "Orlando", "Philadelphia", "San Francisco", "Seattle", "Washington"]));
+// Expected output: ["New York", "Orlando"]
+
+console.log(citiesAtoJ(["Dallas", "Houston", "Las Vegas", "Phoenix", "San Diego", "Tampa"]));
+// Expected output: ["Dallas", "Houston"]
+
+console.log(citiesAtoJ([]));
+// Expected output: []
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -295,7 +310,7 @@ describe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   let cities = ['Cleveland', 'San Diego', 'Birmingham', 'Seattle', 'Miami', 'New York City', 'Omaha', 'Portland', 'Austin', 'Boston', 'Newport Beach', 'Hoboken'];
 
   test('It should return the cities whose names begin with the letters A through J', () => {
