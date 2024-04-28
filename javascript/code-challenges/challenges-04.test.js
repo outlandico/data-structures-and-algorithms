@@ -28,25 +28,16 @@ Prove that the original people array is unchanged
 ------------------------------------------------------------------------------------------------ */
 
 const addPeople = (arr) => {
-  // Create a new copy of the people array using spread operator
-  const newArray = [...arr];
+  // Create a copy of the array using spread syntax
+  const newArr = [...arr];
 
-  // Add 'Odie' to the beginning of the array
-  newArray.unshift('Odie');
-
-  // Add 'Garfield' to the end of the array
-  newArray.push('Garfield');
+  // Add 'Odie' to the beginning and 'Garfield' to the end
+  newArr.unshift('Odie');
+  newArr.push('Garfield');
 
   // Return the new array
-  return newArray;
+  return newArr;
 };
-
-// Test the function
-const newPeople = addPeople(people);
-
-// Check if the original people array is unchanged
-console.log("Original people array:", people); // Output should be ['Kookla', 'Fran', 'Ollie']
-console.log("New people array:", newPeople);   // Output should be ['Odie', 'Kookla', 'Fran', 'Ollie', 'Garfield']
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -63,12 +54,15 @@ Ensure that the original people array and stuff objects are unchanged
 ------------------------------------------------------------------------------------------------ */
 
 const setState = (arr, obj) => {
-  // Create copies of the provided array and object using spread operator
-  const newPeople = [...arr];
-  const newStuff = { ...obj };
+  // Create copies of the people array and the stuff object
+  const peopleCopy = [...arr];
+  const stuffCopy = { ...obj };
 
-  // Return a new state object containing the copies of people array and stuff object
-  return { people: newPeople, stuff: newStuff };
+  // Create and return the state object
+  return {
+    people: peopleCopy,
+    stuff: stuffCopy
+  };
 };
 
 
@@ -87,23 +81,30 @@ In the newState function, use only spread and destructuring assignments to:
 Ensure that the original people array and stuff objects are unchanged
 
 ------------------------------------------------------------------------------------------------ */
-
 const newState = (arr, obj) => {
-  // Create copies of the provided array and object using spread operator
-  const newPeople = [...arr];
-  const newStuff = { ...obj };
+  // Create copies of the people array and the stuff object
+  const peopleCopy = [...arr];
+  const stuffCopy = { ...obj };
 
   // Add a new car ("Ford") to the list of cars
-  newStuff.cars = [...newStuff.cars, "Ford"];
+  const newCars = [...stuffCopy.cars, "Ford"];
 
   // Change the toothbrush from "frayed" to "brand new"
-  newStuff.toothbrush = "brand new";
+  const newToothbrush = "brand new";
 
   // Add 1 to the number of toys
-  newStuff.toys += 1;
+  const newToys = stuffCopy.toys + 1;
 
-  // Return a new state object containing the copies of people array and stuff object with modifications
-  return { people: newPeople, stuff: newStuff };
+  // Create and return the new state object
+  return {
+    people: peopleCopy,
+    stuff: {
+      ...stuffCopy,
+      cars: newCars,
+      toothbrush: newToothbrush,
+      toys: newToys
+    }
+  };
 };
 
 
