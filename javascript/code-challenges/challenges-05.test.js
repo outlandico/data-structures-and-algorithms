@@ -8,27 +8,8 @@ Write a function that finds the maximum value in an array.
 E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
-  if (arr.length === 0) {
-    // Return undefined for an empty array
-    return undefined;
-  }
-
-  let max = arr[0]; // Assume the first element is the maximum
-
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] > max) {
-      // Update max if current element is greater
-      max = arr[i];
-    }
-  }
-
-  return max;
+  // Solution code here...
 };
-
-// Test the function
-const array = [4, 2, 7, 5, 9, 2];
-console.log(maxInArray(array)); // Output: 9
-
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -37,20 +18,14 @@ Write a function named getCourseKeys that takes in the courseInfo object and ret
 
 For example: (['name', 'duration', 'topics', 'finalExam']).
 ------------------------------------------------------------------------------------------------ */
-const getCourseKeys = (courseInfo) => {
-  return Object.keys(courseInfo);
-};
-
-// Test the function
-const courseInfo = {
-  name: 'Code 301',
-  duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks'},
+const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks'},
   topics: ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming'],
   finalExam: true
 };
 
-console.log(getCourseKeys(courseInfo)); // Output: ['name', 'duration', 'topics', 'finalExam']
-
+const getCourseKeys = (obj) => {
+  // Solution code here...
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -61,13 +36,7 @@ Write a function named checkValues that takes in an object and a value and retur
 ------------------------------------------------------------------------------------------------ */
 
 const checkValues = (obj, value) => {
-  // Iterate through the values of the object
-  for (const key in obj) {
-    if (obj[key] === value) {
-      return true; // Return true if the value is found
-    }
-  }
-  return false; // Return false if the value is not found in the object
+  // Solution code here...
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -90,13 +59,8 @@ HR has asked you to change the data to make it easier to print so that it looks 
 ------------------------------------------------------------------------------------------------ */
 
 const updateNumbers = (obj) => {
-  const result = [];
-  for (const [name, phoneNumber] of Object.entries(obj)) {
-    result.push(`${name}: ${phoneNumber}`);
-  }
-  return result;
+  // Solution code here...
 };
-
 
 
 
@@ -151,14 +115,9 @@ const characters = [
 
 const getHouses = (arr) => {
   let houses = [];
-  for (const character of arr) {
-    if (character.house) {
-      houses.push(character.house);
-    }
-  }
+  // Solution code here...
   return houses;
 };
-
 
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -173,11 +132,8 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  const foundCharacter = arr.find(char => char.name === character);
-  if (foundCharacter && 'children' in foundCharacter) {
-    return foundCharacter.children.length > 0;
-  }
-  return false;
+  // Solution code here...
+
 };
 
 /* ------------------------------------------------------------------------------------------------
