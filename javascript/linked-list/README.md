@@ -6,6 +6,7 @@
 This repository contains an implementation of a Linked List data structure in JavaScript. The Linked List class includes methods for insertion, searching, and converting the list to a string representation.
 
 ## Whiteboard Process
+
 ![Linke-List](Linked-List.png)
 
 ## Approach & Efficiency
