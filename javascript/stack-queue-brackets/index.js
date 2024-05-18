@@ -21,12 +21,4 @@ function isValidBrackets(str) {
   return stack.length === 0; // check if all brackets are matched
 }
 
-// Testing the function with edge cases
-console.log(isValidBrackets('')); // true
-console.log(isValidBrackets('hello world')); // true
-console.log(isValidBrackets('((({[')); // false
-console.log(isValidBrackets(']}))')); // false
-console.log(isValidBrackets('{[)]}')); // false
-console.log(isValidBrackets('{[()]}')); // true
-console.log(isValidBrackets('{[()]})')); // false
-console.log(isValidBrackets('{[()](')); // false
+module.exports=isValidBrackets;
