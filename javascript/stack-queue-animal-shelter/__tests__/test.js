@@ -1,35 +1,38 @@
-import unittest
-  from animal_shelter import AnimalShelter, Dog, Cat
+const { AnimalShelter, Dog, Cat } = require('../animalShelter');
+const assert = require('assert');
 
-class TestAnimalShelter(unittest.TestCase):
+describe('AnimalShelter', function () {
 
-    def test_enqueue_dogs_and_cats(self):
-        # Test enqueueing dogs and cats
-shelter = AnimalShelter()
-shelter.enqueue(Dog("Buddy"))
-shelter.enqueue(Cat("Whiskers"))
-        # Asserts to verify the animals are in the shelter
+  it('should enqueue dogs and cats', function () {
+    const shelter = new AnimalShelter();
+    shelter.enqueue(new Dog('Buddy'));
+    shelter.enqueue(new Cat('Whiskers'));
+    assert.strictEqual(shelter.dogs.length, 1);
+    assert.strictEqual(shelter.cats.length, 1);
+    assert.strictEqual(shelter.dogs[0].name, 'Buddy');
+    assert.strictEqual(shelter.cats[0].name, 'Whiskers');
+  });
 
-    def test_dequeue_with_preference(self):
-        # Test dequeueing with preference
-        shelter = AnimalShelter()
-shelter.enqueue(Dog("Buddy"))
-shelter.enqueue(Cat("Whiskers"))
-        # Dequeue with preference for dogs and verify the dog is returned
-        # Dequeue with preference for cats and verify the cat is returned
+  it('should dequeue with preference', function () {
+    const shelter = new AnimalShelter();
+    shelter.enqueue(new Dog('Buddy'));
+    shelter.enqueue(new Cat('Whiskers'));
+    assert.strictEqual(shelter.dequeue('dog').species, 'dog');
+    assert.strictEqual(shelter.dequeue('cat').species, 'cat');
+  });
 
-    def test_dequeue_without_preference(self):
-        # Test dequeueing without preference
-shelter = AnimalShelter()
-shelter.enqueue(Dog("Buddy"))
-shelter.enqueue(Cat("Whiskers"))
-        # Dequeue without preference and verify the first animal added is returned
-        # Dequeue without preference and verify the order is maintained
+  it('should dequeue without preference', function () {
+    const shelter = new AnimalShelter();
+    shelter.enqueue(new Dog('Buddy'));
+    shelter.enqueue(new Cat('Whiskers'));
+    assert.strictEqual(shelter.dequeue().species, 'dog');
+    assert.strictEqual(shelter.dequeue().species, 'cat');
+  });
 
-    def test_empty_shelter(self):
-        # Test dequeueing when the shelter is empty
-shelter = AnimalShelter()
-        # Attempt to dequeue and verify it returns None
+  it('should return null when dequeuing from an empty shelter', function () {
+    const shelter = new AnimalShelter();
+    assert.strictEqual(shelter.dequeue(), null);
+  });
 
-if __name__ == '__main__':
-  unittest.main()
+});
+
