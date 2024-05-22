@@ -1,6 +1,6 @@
-class TreeNode {
-  constructor(val) {
-    this.val = val;
+class Node {
+  constructor(value) {
+    this.value = value;
     this.left = null;
     this.right = null;
   }
@@ -11,22 +11,28 @@ class BinaryTree {
     this.root = root;
   }
 
-  find_maximum_value() {
+  breadthFirst() {
     if (!this.root) {
-      throw new Error('Tree is empty');
+      return [];
     }
 
-    function dfs(node) {
-      if (!node) {
-        return Number.NEGATIVE_INFINITY;
+    const queue = [this.root];
+    const result = [];
+
+    while (queue.length > 0) {
+      const current = queue.shift();
+      result.push(current.value);
+
+      if (current.left) {
+        queue.push(current.left);
       }
-      const maxLeft = dfs(node.left);
-      const maxRight = dfs(node.right);
-      return Math.max(node.val, maxLeft, maxRight);
+      if (current.right) {
+        queue.push(current.right);
+      }
     }
 
-    return dfs(this.root);
+    return result;
   }
 }
 
-module.exports = { BinaryTree, TreeNode };
+module.exports = { Node, BinaryTree };
